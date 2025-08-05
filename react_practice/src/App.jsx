@@ -16,12 +16,16 @@
 
 // UseState in React
 import React from 'react'
-import Counter from './components/Counter'
+// import Welcome from './components/Welcome'
+// import Counter from './components/Counter'
+// import Post from './components/Post'
 
 const App = () => {
   return (
     <>
-    <Counter />
+    {/* <Welcome faculty = "CSIT" /> */}
+    {/* <Counter /> */}
+    {/* <Post postTitle = "Learn React Basic" /> */}
     </>
   )
 }
