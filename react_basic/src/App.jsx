@@ -1,34 +1,51 @@
 import { useState } from "react";
-import Component1 from "./components/Component1";
-import Component2 from "./components/Component2";
+import Name from "./components/Name";
+import Color from "./components/Color";
+import Hobby from "./components/Hobby";
 
 function App() {
-  const [collegeName, setCollegeName] = useState();
-  const [age, setAge] = useState();
+  const [name, setName] = useState();
+  const [color, setColor] = useState();
+  const [hobby, setHobby] = useState();
 
   return (
-    <>
-      <h1>Props in REACT:</h1>
-      <h2>College Name:</h2>
-      <input
-        type="text"
-        value={collegeName}
-        onChange={(e) => {
-          setCollegeName(e.target.value);
-        }}
-      />
+    <div className="box">
+      <h1>Enter your details:</h1>
 
-      <h2>Age:</h2>
-      <input
-        type="number"
-        value={age}
-        onChange={(e) => {
-          setAge(e.target.value);
-        }}
-      />
-      <Component1 collegeName={collegeName} /> 
-      <Component2 age={age} />
-    </>
+      <div className="box-contents">
+        <h2>Full Name:</h2>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
+        />
+
+        <h2>Favorite Color:</h2>
+        <input
+          type="text"
+          value={color}
+          onChange={(e) => {
+            setColor(e.target.value);
+          }}
+        />
+
+        <h2>Hobby:</h2>
+        <input
+          type="text"
+          value={hobby}
+          onChange={(e) => {
+            setHobby(e.target.value);
+          }}
+        />
+      </div>
+
+      {/* Passing props to child components */}
+      <Name name={name} />
+      <Color color={color} />
+      <Hobby hobby={hobby} />
+    </div>
   );
 }
 
