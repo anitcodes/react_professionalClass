@@ -1,9 +1,24 @@
-import React from 'react'
+import React from "react";
 
 const ProfileForm = () => {
   return (
-    <div>ProfileForm</div>
-  )
-}
+    <>
+      <div className="myCard">
+        <h1>This is my Card</h1>
+      </div>
+      <div className="textItems">
+        <ul>
+          <li>Foods</li>
+        </ul>
+        <ol>
+          <li>Apple</li>
+          <li>Apple</li>
+          <li>Apple</li>
+          <li>Apple</li>
+        </ol>
+      </div>
+    </>
+  );
+};
 
-export default ProfileForm
+export default ProfileForm;
