@@ -4,9 +4,24 @@ import Color from "./components/Color";
 import Hobby from "./components/Hobby";
 
 function App() {
-  const [name, setName] = useState();
-  const [color, setColor] = useState();
-  const [hobby, setHobby] = useState();
+  // const [name, setName] = useState();
+  // const [color, setColor] = useState();
+  // const [hobby, setHobby] = useState();
+  const [personDetail, setPersonDetail] = useState({
+    name: "Anit",
+    color: "Black",
+    hobby: "Coding",
+  });
+
+  //function to handle stateChange
+  const handleChange = (e, key) => {
+    setPersonDetail((prevState) => {
+      return {
+        ...prevState,
+        [key]: e.target.value,
+      };
+    });
+  };
 
   return (
     <>
@@ -17,44 +32,40 @@ function App() {
           <h2>Full Name:</h2>
           <input
             type="text"
-            value={name}
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
+            value={personDetail.name}
+            onChange={(e) => handleChange(e, "name")} //function call
           />
 
           <h2>Favorite Color:</h2>
           <input
             type="text"
-            value={color}
-            onChange={(e) => {
-              setColor(e.target.value);
-            }}
+            value={personDetail.color} //accessing object
+            onChange={(e) => handleChange(e, "color")} //function call
           />
 
           <h2>Hobby:</h2>
           <input
             type="text"
-            value={hobby}
-            onChange={(e) => {
-              setHobby(e.target.value);
-            }}
+            value={personDetail.hobby}
+            onChange={(e) => handleChange(e, "hobby")} //function call
           />
         </div>
 
         {/* Passing props to child components */}
-        <Name name={name} />
-        <Color color={color} />
-        <Hobby hobby={hobby} />
+        <Name name={personDetail.name} />
+        <Color color={personDetail.color} />
+        <Hobby hobby={personDetail.hobby} />
       </div>
 
       <button
-        onClick={() => {
-          setName("");
-          setColor("");
-          setHobby("");
-        }}
         className="reset"
+        onClick={() =>
+          setPersonDetail({
+            name: "",
+            color: "",
+            hobby: "",
+          })
+        }
       >
         Reset
       </button>
