@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const App = () => {
+  const[profile, setProfile] = useState({
+    name: "",
+    age: "",
+    address: ""
+  })
+
   return (
-    <div>App</div>
+   <>
+   <h1>This is App</h1>
+   </>
   )
 }
 
