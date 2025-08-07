@@ -13,4 +13,21 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #111;
+  color: #fff;
+}
+
+.btn{
+  padding: 15px 25px;
+  font-size: 20px;
+  background-color: rgb(112, 3, 119);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.btn:hover{
+  background-color: rgb(139, 49, 146);
 }
