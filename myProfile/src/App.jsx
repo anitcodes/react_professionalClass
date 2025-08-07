@@ -10,14 +10,10 @@ const App = () => {
   });
 
   return (
-    <div className="container">
-      <div className="profile">
-        <h1>Profile Card</h1>
-        <ProfileForm profile={profile} setProfile={setProfile} />
-        <ProfileDisplay profile={profile} />
-        <ProfileForm />
-      </div>
-    </div>
+    <>
+      <ProfileForm profile={profile} setProfile={setProfile} />
+      <ProfileDisplay profile={profile} />
+    </>
   );
 };
 

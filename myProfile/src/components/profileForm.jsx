@@ -1,23 +1,39 @@
 import React from "react";
 
-const ProfileForm = () => {
+const ProfileForm = ({ profile, setProfile }) => {
+  const handleChange = (e, key) => {
+    setProfile((prevState) => {
+      return {
+        ...prevState,
+        [key]: e.target.value,
+      };
+    });
+  };
+
   return (
-    <>
-      <div className="myCard">
-        <h1>This is my Card</h1>
-      </div>
-      <div className="textItems">
-        <ul>
-          <li>Foods</li>
-        </ul>
-        <ol>
-          <li>Apple</li>
-          <li>Apple</li>
-          <li>Apple</li>
-          <li>Apple</li>
-        </ol>
-      </div>
-    </>
+    <div className="profileContainer">
+      <h1>Enter your Details:</h1>
+      <form>
+        <input
+          type="text"
+          placeholder="Enter your name"
+          value={profile.name}
+          onChange={(e) => handleChange(e, "name")}
+        />
+        <input
+          type="text"
+          placeholder="Enter your age"
+          value={profile.age}
+          onChange={(e) => handleChange(e, "age")}
+        />
+        <input
+          type="text"
+          placeholder="Enter your address"
+          value={profile.address}
+          onChange={(e) => handleChange(e, "address")}
+        />
+      </form>
+    </div>
   );
 };
 
