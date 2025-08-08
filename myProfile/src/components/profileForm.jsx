@@ -4,6 +4,7 @@ const ProfileForm = ({ profile, setProfile }) => {
   const handleChange = (e, key) => {
     setProfile((prevState) => {
       return {
+        
         ...prevState,
         [key]: e.target.value,
       };
