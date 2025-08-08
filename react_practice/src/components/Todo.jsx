@@ -5,52 +5,33 @@ const Todo = () => {
     { id: 1, title: "Eat", isCompleted: true },
     { id: 2, title: "Code", isCompleted: true },
     { id: 3, title: "Dance", isCompleted: false },
-    { id: 4, title: "Sleep", isCompleted: true },
+    { id: 4, title: "Sleep", isCompleted: false },
     { id: 5, title: "Play", isCompleted: false },
   ]);
 
   return (
-    <div className="container">
-      <h2 style={{ textAlign: "center", marginBottom: "20px" }}>📝 To Do App</h2>
-      <ul style={{ listStyle: "none", padding: 0, width: "100%" }}>
-        {todo.map((item, index) => (
-          <li
-            key={index}
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              padding: "10px 15px",
-              marginBottom: "10px",
-              backgroundColor: "#f5f5f5",
-              borderRadius: "10px",
-              fontFamily: "sans-serif",
-              fontSize: "18px",
-            }}
-          >
-            <span
-              style={{
-                textDecoration: item.isCompleted ? "line-through" : "none",
-                color: item.isCompleted ? "gray" : "black",
-              }}
+    <div className="container h-screen w-full bg-gray-300 flex items-center justify-center">
+      <div className="todoContainer">
+        <h1 className="text-4xl font-bold my-10 text-center">My To Do App</h1>
+        <ul className="w-96 bg-gray-700 text-white px-6 py-4 rounded-xl space-y-4">
+          {todo.map((todo, index) => (
+            <li
+              key={index}
+              className="flex items-center justify-between bg-gray-800 px-4 py-2 rounded-md"
             >
-              {item.title}
-            </span>
-            <span
-              style={{
-                padding: "5px 10px",
-                borderRadius: "5px",
-                fontSize: "14px",
-                fontWeight: "bold",
-                backgroundColor: item.isCompleted ? "#d4edda" : "#fff3cd",
-                color: item.isCompleted ? "#155724" : "#856404",
-              }}
-            >
-              {item.isCompleted ? "Done" : "Pending"}
-            </span>
-          </li>
-        ))}
-      </ul>
+              <div className="flex items-center gap-3">
+                <span className="font-semibold">{todo.id}.</span>
+                <span className="capitalize">{todo.title}</span>
+              </div>
+              <span
+                className={`h-4 w-4 rounded-full ${
+                  todo.isCompleted ? "bg-green-500" : "bg-red-700"
+                }`}
+              ></span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
