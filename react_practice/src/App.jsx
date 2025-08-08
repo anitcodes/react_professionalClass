@@ -51,3 +51,19 @@
 // };
 
 // export default App;
+
+
+// TodoApp using props and useState(Day4_ProfessionalClass)
+
+import React from 'react'
+import Todo from './components/Todo'
+
+const App = () => {
+  return (
+    <>
+    <Todo />
+    </>
+  )
+}
+
+export default App

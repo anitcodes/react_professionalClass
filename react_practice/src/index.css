@@ -18,7 +18,7 @@ body{
   font-size: 40px;
 }
 
-.counterShow{
+/* .counterShow{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,7 +27,7 @@ body{
 button{
   height: 60px;
   width: 60px;
-  /* padding: 15px 50px; */
+  padding: 15px 50px;
   background: rgb(206, 13, 13);
   color: rgb(255, 255, 255);
   border-radius: 50%;
@@ -47,4 +47,4 @@ button:hover{
   align-items: center;
   gap: 20px;
   margin: 20px 0;
-}
+} */
