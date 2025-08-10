@@ -10,66 +10,61 @@ const ToDos = () => {
   ]);
 
   const toggleTodo = (id) => {
-    const updateTodo = todos.map(todo => {
-        return todo.id === id?{
-            ...todo,
-            isCompleted: !todo.isCompleted
-        } :todo
-    })
-    setTodos(updateTodo)
-  }
+    const updateTodo = todos.map((todo) =>
+      todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
+    );
+    setTodos(updateTodo);
+  };
 
   return (
-    <>
-      <div
-        style={{
-          height: "500px",
-          width: "600px",
-          background: "white",
-        }}
-      >
-        <h1 style={{ textAlign: "center" }}>TO DO APP:</h1>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
+      <div className="w-full max-w-lg bg-white rounded-xl shadow-lg p-6">
+        <h1 className="text-center text-2xl font-bold mb-6 text-gray-800">
+          TO DO APP
+        </h1>
 
-        <ul>
-          {todos.map((todo, index) => {
-            return (
-              <li
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  padding: "20px",
-                }}
-                key={index}
+        <ul className="space-y-4">
+          {todos.map((todo) => (
+            <li
+              key={todo.id}
+              className="flex items-center justify-between p-4 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition"
+            >
+              {/* Task title */}
+              <span
+                className={`flex-1 text-lg font-medium ${
+                  todo.isCompleted
+                    ? "line-through text-gray-500"
+                    : "text-gray-800"
+                }`}
               >
-                <span>{todo.title}</span>
+                {todo.title}
+              </span>
 
-                <span
-                  style={{
-                    background: todo.isCompleted ? "green" : "red",
-                    padding: "5px",
-                  }}
-                >
-                  {todo.isCompleted ? "(Done)" : "(Pending)"}
-                </span>
+              
+              <span
+                className={`w-28 text-center px-3 py-1 rounded-full text-sm font-semibold ${
+                  todo.isCompleted
+                    ? "bg-green-100 text-green-600"
+                    : "bg-red-100 text-red-600"
+                }`}
+              >
+                {todo.isCompleted ? "Done" : "Pending"}
+              </span>
 
-                <span>
-                  <button
-                    onClick={() => toggleTodo(todo.id)}
-                    style={{
-                      padding: "10px",
-                      background: "pink",
-                      cursor: "poiter"
-                    }}
-                  >
-                    Toogle
-                  </button>
-                </span>
-              </li>
-            );
-          })}
+              {/* Toggle button */}
+              <button
+                onClick={() => toggleTodo(todo.id)}
+                className="ml-3 px-4 py-2 bg-pink-500 cursor-pointer hover:bg-pink-600 text-white rounded transition"
+              >
+                Toggle
+              </button>
+
+              <button className="ml-3 px-4 py-2 bg-red-500 cursor-pointer hover:bg-red-600 text-white rounded transition">Delete</button>
+            </li>
+          ))}
         </ul>
       </div>
-    </>
+    </div>
   );
 };
 
