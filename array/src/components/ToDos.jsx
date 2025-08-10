@@ -9,11 +9,17 @@ const ToDos = () => {
     { id: 5, title: "Coding", isCompleted: true },
   ]);
 
+  //function to toogle done and pending option
   const toggleTodo = (id) => {
     const updateTodo = todos.map((todo) =>
       todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
     );
     setTodos(updateTodo);
+  };
+
+  // function to delete item
+  const deleteTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
   };
 
   return (
@@ -40,7 +46,6 @@ const ToDos = () => {
                 {todo.title}
               </span>
 
-              
               <span
                 className={`w-28 text-center px-3 py-1 rounded-full text-sm font-semibold ${
                   todo.isCompleted
@@ -59,7 +64,14 @@ const ToDos = () => {
                 Toggle
               </button>
 
-              <button className="ml-3 px-4 py-2 bg-red-500 cursor-pointer hover:bg-red-600 text-white rounded transition">Delete</button>
+              <button
+                onClick={() => {
+                  deleteTodo(todo.id);
+                }}
+                className="ml-3 px-4 py-2 bg-red-500 cursor-pointer hover:bg-red-600 text-white rounded transition"
+              >
+                Delete
+              </button>
             </li>
           ))}
         </ul>
