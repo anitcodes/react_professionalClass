@@ -1,19 +1,23 @@
 import React from "react";
 
-const ContactItem = ({ contact, deleteContact }) => {
+const ContactItem = ({ id, name, phone, address, deleteContact, setContactToEdit }) => {
   return (
-    <div className="container flex items-center justify-center">
-      <div className="p-4 bg-red-100 flex items-center gap-20 pl-10 mt-4 w-[calc(100%-30%)]">
-        <h3>{contact.id}</h3>
-        <h3>{contact.name}</h3>
-        <h3>{contact.phone}</h3>
-        <h3>{contact.address}</h3>
-        <button className="px-8 py-2 bg-green-500 text-white rounded outline-none cursor-pointer hover:bg-green-600">
+    <div className="flex justify-between items-center p-4 bg-gray-100 rounded-xl shadow hover:bg-gray-200 transition">
+      <div>
+        <p className="font-medium text-gray-800">{name}</p>
+        <p className="text-gray-600 text-sm">{phone}</p>
+        <p className="text-gray-600 text-sm">{address}</p>
+      </div>
+      <div className="flex flex-col space-y-2">
+        <button
+          className="bg-yellow-400 text-white px-3 py-1 rounded-lg hover:bg-yellow-500 transition"
+          onClick={() => setContactToEdit({ id, name, phone, address })}
+        >
           Edit
         </button>
         <button
-          className="px-8 py-2 bg-red-500 text-white rounded outline-none cursor-pointer hover:bg-red-600"
-          onClick={() => deleteContact(contact.id)}
+          className="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600 transition"
+          onClick={() => deleteContact(id)}
         >
           Delete
         </button>
