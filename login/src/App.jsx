@@ -1,12 +1,17 @@
-import React from 'react'
-import LoginForm from './components/LoginForm'
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoginForm from "./components/LoginForm";
+import Dashboard from "./components/Dashboard";
 
 const App = () => {
   return (
-    <>
-    <LoginForm />
-    </>
-  )
-}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LoginForm />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;

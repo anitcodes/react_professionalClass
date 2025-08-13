@@ -1,14 +1,22 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
+  const navigate = useNavigate();
 
-  const formsubmitHandler = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Submitted Successfully");
-    console.log("Email is ", email);
-    console.log("Password is ", password);
+    //Check email and password matches or not if yes then route to dashboard
+    if (email === "anit@gmail.com" && password === "helloworld") {
+      navigate("/Dashboard");
+    } else {
+      alert("Incorrect email or password!");
+    }
+    // console.log("Form Submitted Successfully");
+    // console.log("Email is ", email);
+    // console.log("Password is ", password);
     setemail("");
     setpassword("");
   };
@@ -19,7 +27,7 @@ const LoginForm = () => {
         <h1 className="text-3xl font-bold text-white text-center mb-6">
           Login
         </h1>
-        <form onSubmit={formsubmitHandler} className="flex flex-col gap-4">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <input
             className="border border-gray-300 px-4 py-2 rounded-full bg-transparent text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
             type="email"

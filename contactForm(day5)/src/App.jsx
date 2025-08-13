@@ -1,27 +1,27 @@
 import React, { useState } from "react";
-import ContactForm from "./components/ContactForm";
 import ContactList from "./components/ContactList";
 
 const App = () => {
-  const [contacts, setContacts] = useState([]);
-
-  const addContact = (contact) => {
-    setContacts([
-      ...contacts,
-      { id: Math.floor(Math.random() * 1000000), ...contact }
-    ]);
-  };
+  //lifting up the state
+  const [contacts, setcontacts] = useState([
+    { id: 1, name: "Anit Shrestha", phone: "9877636273", address: "Kalimati" },
+    { id: 2, name: "Sudip Dahal", phone: "9874886641", address: "Chabahel" },
+    {
+      id: 3,
+      name: "Shalin Raj Satyal",
+      phone: "9877620284",
+      address: "Bhaktapur",
+    },
+  ]);
 
   const deleteContact = (id) => {
-    setContacts(contacts.filter((c) => c.id !== id));
+    setcontacts(contacts.filter((contact) => contact.id !== id));
   };
 
   return (
-    <div className="min-h-screen bg-red-200 p-6">
-      <h1 className="text-3xl font-bold mb-6 text-center">Contact Manager</h1>
-      <ContactForm addContact={addContact} />
+    <>
       <ContactList contacts={contacts} deleteContact={deleteContact} />
-    </div>
+    </>
   );
 };
 

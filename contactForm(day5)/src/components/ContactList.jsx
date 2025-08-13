@@ -3,19 +3,15 @@ import ContactItem from "./ContactItem";
 
 const ContactList = ({ contacts, deleteContact }) => {
   return (
-    <div className="space-y-4">
-      {contacts.length === 0 ? (
-        <p className="text-gray-600 text-center">No contacts yet.</p>
-      ) : (
-        contacts.map((contact) => (
-          <ContactItem
-            key={contact.id}
-            contact={contact}
-            deleteContact={deleteContact}
-          />
-        ))
-      )}
-    </div>
+    <>
+      <h1 className="text-center my-4 text-3xl font-semibold">
+        Contact Management System
+      </h1>
+
+      {contacts.map((c) => (
+        <ContactItem key={c.id} contact={c} deleteContact={deleteContact} />
+      ))}
+    </>
   );
 };
 
